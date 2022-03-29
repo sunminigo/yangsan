@@ -4,105 +4,20 @@
 .header_area {
 	position: relative;
 	text-align: center;
+	padding: 13px 20px;
+	border: 1px solid $light;
 
 	.btn_back {
 		@include position-translate(absolute, $t:50%, $l:0, $x:0, $y:-50%);
+		padding: 16px 10px;
 	}
 	.logo {
-
+		font-size: 20px;
 	}
 }
 
-/*-----------------
-	side menu
-------------------*/
-.side_menu {
-	position: fixed;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
-	z-index: 100;
-	-webkit-transition: all ease 1s 0s;
-	-moz-transition: all ease 1s 0s;
-	-ms-transition: all ease 1s 0s;
-	-o-transition: all ease 1s 0s;
-	transition: all ease 1s 0s;
-
-	&.active {
-		left: 0;
-		animation: backgroundColor 1s 1s both alternate;
-		-webkit-animation: backgroundColor 1s 1s both alternate;
-	}
-	.side_bg {
-		width: 60%;
-		height: 100vh;
-		padding: 1rem;
-		background-color: #fff;
-	}
-	.side_logo {
-		text-align: center;
-		width: 18.75rem;
-		margin: 0 auto;
-	}
-	.menu_side {
-		height: 100%;
-		margin-top: 5vw;
-
-		li {
-			border-top: 1px solid #bebebe;
-
-			&:first-child {
-				border-top: none;
-			}
-			a {
-				display: block;
-				padding: 4vw 10vw;
-				color: #fefefe;
-				font-size: 4vw;
-			}
-			&.active a {
-				color: #ff0000;
-			}
-			&.point_green a {
-				color: #159606;
-			}
-			span:before {
-				content: '-';
-				display: inline-block;
-				margin-right: 10px;
-				color: #fefefe;
-			}
-			&.active span:before {
-				color: #ff0000;
-			}
-			&.point_green span:before {
-				color: #159606;
-			}
-		}
-	}
-	.btn_close {
-		position: absolute;
-		top: 0;
-		left: 60%;
-		width: 30px;
-		height: 30px;
-		font-size: 30px;
-		color: #fff;
-
-		i {
-			color: inherit;
-			opacity: 1;
-		}
-	}
-}
-@keyframes backgroundColor {
-	0% {
-		background-color: rgba(0, 0, 0, 0);
-	}
-	100% {
-		background-color: rgba(0, 0, 0, 0.5);
-	}
+.main_logo {
+	font-size: 25px;
 }
 
 /*-----------------
@@ -113,32 +28,116 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
 	height: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+
+	.visual {
+		width: 100%;
+		max-width: 320px;
+		@media screen and (max-width: 320px) {
+			margin: 30px 0 20px;
+		}
+	}
+	.btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		max-width: 320px;
+		height: 68px;
+		line-height: 68px;
+		font-size: 16px;
+		font-weight: bold;
+		color: $color-point;
+		border: 2px solid $color-point;
+		border-radius: 8px;
+		background: #fff;
+		box-shadow: 0px 1px 2px rgba(97, 97, 97, 0.2), 0px 2px 4px rgba(97, 97, 97, 0.2);
+
+		&+.btn {
+			margin-top: 24px;
+		}
+		img {
+			width: 45px;
+			height: 45px;
+			margin-right: 12px;
+		}
+		@media screen and (max-width: 320px) {
+			height: 58px;
+			line-height: 58px;
+		}
+	}
 }
 
 /*-----------------
 	reservation
 ------------------*/
 .page_reservation {
-	details {
-		border: 1px solid #aaa;
-		border-radius: 4px;
-		padding: .5em .5em 0;
-	}
+	.accordion_list {
+		li {
+			&.open {
+				.link {
+					color: $darkgrey;
+				}
+				.img_arrow {
+					-webkit-transform: rotate(180deg);
+					-ms-transform: rotate(180deg);
+					-o-transform: rotate(180deg);
+					transform: rotate(180deg);
+				}
+			}
 
-	summary {
-		font-weight: bold;
-		margin: -.5em -.5em 0;
-		padding: .5em;
-	}
+			.link {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				text-align: left;
+				width: 100%;
+				padding: 12px $base-space 12px $base-space*2;
+				color: #4D4D4D;
+				font-size: 14px;
+				font-weight: 700;
+				border-bottom: 1px solid $light;
+				position: relative;
+				-webkit-transition: all 0.4s ease;
+				-o-transition: all 0.4s ease;
+				transition: all 0.4s ease;
 
-	details[open] {
-		padding: .5em;
-	}
+				.text {
+					flex: 2;
+				}
+				.img_arrow {
+					-webkit-transition: all 0.4s ease;
+					-o-transition: all 0.4s ease;
+					transition: all 0.4s ease;
+				}
+			}
+			.submenu {
+				display: none;
+				font-size: 16px;
 
-	details[open] summary {
-		border-bottom: 1px solid #aaa;
-		margin-bottom: .5em;
-	}
+				button {
+					display: flex;
+					align-items: center;
+					text-align: left;
+					width: 100%;
+					text-decoration: none;
+					color: $darkgrey;
+					padding: 12px 0;
+					padding-left: $base-space*2;
+					background: rgba(0, 0, 0, 0.02);
+					border-bottom: 1px solid $light;
 
+					&:hover {
+						background: rgba(0, 171, 78, 0.5);
+					}
+					img {
+						margin-right: 12px;
+					}
+				}
+			}
+		}
+	}
 }

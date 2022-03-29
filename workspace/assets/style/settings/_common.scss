@@ -7,7 +7,7 @@
 	margin: 0;
 	padding: 0;
 	font-family: 'Noto Sans KR', sans-serif;
-	color: $default;
+	color: $black;
 	@include vendorPrefix(box-sizing, border-box);
 }
 
@@ -59,7 +59,7 @@ a:active {
 	text-decoration: none;
 }
 a {
-	color: $darkGrey2;
+	color: $default;
 }
 
 button,
@@ -80,8 +80,7 @@ button {
 	border: none;
 }
 
-img,
-i {
+img, i {
 	vertical-align: text-bottom;
 }
 i {
@@ -89,10 +88,22 @@ i {
 	opacity: 0.5;
 }
 
-ul,
-ol,
-li {
+ul, ol {
 	list-style-type: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
 
 .hand {

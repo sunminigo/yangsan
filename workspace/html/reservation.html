@@ -1,21 +1,58 @@
 @@include('../include/head.html', {title: '양산 보건소'})
-@@include('../include/header.html')
+@@include('../include/header.html', {isLeft: true, title: '예약'})
 
 <div class="container page_reservation">
   <div class="dropdown_area">
-    <button type="button" class="btn_dropdown">이용 보건소 선택</button>
-    <nav class="dropdown_menu">
-      <button type="button">보건소1</button>
-      <button type="button">보건소2</button>
-    </nav>
-
-    <details>
-      <summary>오늘의 환율</summary>
-      <ul>
-        <li>달러($) : 1,135.90</li>
-        <li>유로(€) : 1,284.08</li>
-        <li>엔(￥) : 1,014.88</li>
-      </ul>
-    </details>
+    <ul id="accordion" class="accordion_list">
+      <li>
+        <button type="button" class="link">
+          <p class="text">이용 보건소 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+        </button>
+        <div class="submenu">
+          <button type="button"><img src="./assets/images/icons/plus.png" alt="">보건소1</button>
+          <button type="button"><img src="./assets/images/icons/plus.png" alt="">보건소2</button>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="link">
+          <p class="text">진료 과 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+        </button>
+        <div class="submenu">
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">보건소1</button>
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">보건소2</button>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="link">
+          <p class="text">담당의 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+        </button>
+        <div class="submenu">
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">보건소1</button>
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">보건소2</button>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="link">
+          <p class="text">예약 날짜/시간</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+        </button>
+        <div class="submenu">
+          <button type="button"><img src="./assets/images/icons/person.png" alt="">보건소1</button>
+          <button type="button"><img src="./assets/images/icons/person.png" alt="">보건소2</button>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="link">
+          <p class="text">예약 날짜/시간</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+        </button>
+        <div class="submenu">
+          <button type="button"><img src="./assets/images/icons/calendar.png" alt="">보건소1</button>
+          <div class="calendar-box">
+            <input type="date">
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
+
+@@include('../include/footer.html')

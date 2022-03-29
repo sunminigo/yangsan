@@ -40,6 +40,7 @@ gulp.task('html-include', () => {
 				include({
 					prefix: '@@',
 					basepath: '@file',
+					indent: true
 				})
 			)
 			.pipe(gulp.dest(DEST_PATH.HTML))
