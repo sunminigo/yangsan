@@ -1,5 +1,22 @@
-@@include('../include/head.html', {title: '양산 보건소'})
-@@include('../include/header.html', {isLeft: true, title: '예약'})
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>양산 보건소</title>
+
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="/assets/style/style.css" />
+</head>
+<body>
+<header class="header_area">
+  
+  <div class="btn_left_box">
+      <button type="button" class="btn_back"><img src="./assets/images/icons/arrow-left.png" alt="뒤로가기버튼" height="24px"></button>
+  </div>
+  
+  <h1 class="logo"><img src="./assets/images/logo.png" alt="양산시보건소 로고" height="27px"> 예약</h1>
+</header>
 
 <div class="container page_reservation">
   <div class="dropdown_area">
@@ -45,44 +62,19 @@
             <div id="datepicker"></div>
           </div>
           <button type="button" id="selectTime">
-            <img src="./assets/images/icons/clock.png" alt=""><span id="selecTime">예약시간을 선택하세요</span>
+            <img src="./assets/images/icons/calendar.png" alt=""><span id="selecTime">예약시간을 선택하세요</span>
           </button>
           <div class="time_box">
-            <div class="time">
-              <h3>오전</h3>
-              <ul class="times">
-                <li class="disabled"><button type="button">09:00</button></li>
-                <li><button type="button">09:30</button></li>
-                <li><button type="button">10:00</button></li>
-                <li class="disabled"><button type="button">10:30</button></li>
-                <li><button type="button">11:00</button></li>
-                <li><button type="button">11:30</button></li>
-              </ul>
-            </div>
-            <div class="time">
-              <h3>오후</h3>
-              <ul class="times">
-                <li><button type="button">09:00</button></li>
-                <li><button type="button">09:30</button></li>
-                <li class="selected"><button type="button">10:00</button></li>
-                <li class="disabled"><button type="button">10:30</button></li>
-                <li><button type="button">11:00</button></li>
-                <li><button type="button">11:30</button></li>
-              </ul>
-            </div>
+time
           </div>
         </div>
       </li>
     </ul>
   </div>
-
-  <div class="btn_wrap fix">
-    <!--
-       비활성화 btn_disabled
-       활성화 btn_agree
-     -->
-    <button type="button" class="btn btn_lg btn_agree shadow">다음 단계로</button>
-  </div>
 </div>
 
-@@include('../include/footer.html')
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/assets/script/common.js"></script>
+</body>
+</html>

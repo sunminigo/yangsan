@@ -5,13 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>양산 보건소</title>
 
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 	<link rel="stylesheet" href="/assets/style/style.css" />
 </head>
 <body>
 <header class="header_area">
   
   <div class="btn_left_box">
-      <button type="button" class="btn_back"><img src="./assets/images/icons/arrow-left.png" alt="뒤로가기버튼" height="20px"></button>
+      <button type="button" class="btn_back"><img src="./assets/images/icons/arrow-left.png" alt="뒤로가기버튼" height="24px"></button>
   </div>
   
   <h1 class="logo"><img src="./assets/images/logo.png" alt="양산시보건소 로고" height="27px"> 예약</h1>
@@ -22,56 +23,87 @@
     <ul id="accordion" class="accordion_list">
       <li>
         <button type="button" class="link">
-          <p class="text">이용 보건소 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+          <p class="text"><span class="select_place"></span> 이용 보건소 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
-          <button type="button"><img src="./assets/images/icons/plus.png" alt="">보건소1</button>
-          <button type="button"><img src="./assets/images/icons/plus.png" alt="">보건소2</button>
+          <button type="button"><img src="./assets/images/icons/plus.png" alt="">양산시 보건소 본원</button>
+          <button type="button"><img src="./assets/images/icons/plus.png" alt="">웅진 보건소</button>
         </div>
       </li>
       <li>
         <button type="button" class="link">
-          <p class="text">진료 과 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+          <p class="text"><span class="select_place"></span> 진료 과 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">보건소1</button>
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">보건소2</button>
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">내과</button>
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">정형외과</button>
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">정신과 </button>
         </div>
       </li>
       <li>
         <button type="button" class="link">
-          <p class="text">담당의 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+          <p class="text"><span class="select_section"></span> 담당의 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">보건소1</button>
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">보건소2</button>
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">선택안함</button>
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">유재석</button>
+          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">정준하</button>
         </div>
       </li>
       <li>
         <button type="button" class="link">
-          <p class="text">예약 날짜/시간</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+          <p class="text"><span class="select_doctor"></span> 예약 날짜/시간</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
-          <button type="button"><img src="./assets/images/icons/person.png" alt="">보건소1</button>
-          <button type="button"><img src="./assets/images/icons/person.png" alt="">보건소2</button>
-        </div>
-      </li>
-      <li>
-        <button type="button" class="link">
-          <p class="text">예약 날짜/시간</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
-        </button>
-        <div class="submenu">
-          <button type="button"><img src="./assets/images/icons/calendar.png" alt="">보건소1</button>
-          <div class="calendar-box">
-            <input type="date">
+          <button type="button" id="selectDate">
+            <img src="./assets/images/icons/calendar.png" alt=""><span id="selectDay">예약날짜를 선택하세요</span>
+          </button>
+          <div class="calendar_box">
+            <div id="datepicker"></div>
+          </div>
+          <button type="button" id="selectTime">
+            <img src="./assets/images/icons/clock.png" alt=""><span id="selecTime">예약시간을 선택하세요</span>
+          </button>
+          <div class="time_box">
+            <div class="time">
+              <h3>오전</h3>
+              <ul class="times">
+                <li class="disabled"><button type="button">09:00</button></li>
+                <li><button type="button">09:30</button></li>
+                <li><button type="button">10:00</button></li>
+                <li class="disabled"><button type="button">10:30</button></li>
+                <li><button type="button">11:00</button></li>
+                <li><button type="button">11:30</button></li>
+              </ul>
+            </div>
+            <div class="time">
+              <h3>오후</h3>
+              <ul class="times">
+                <li><button type="button">09:00</button></li>
+                <li><button type="button">09:30</button></li>
+                <li class="selected"><button type="button">10:00</button></li>
+                <li class="disabled"><button type="button">10:30</button></li>
+                <li><button type="button">11:00</button></li>
+                <li><button type="button">11:30</button></li>
+              </ul>
+            </div>
           </div>
         </div>
       </li>
     </ul>
   </div>
+
+  <div class="btn_wrap fix">
+    <!--
+       비활성화 btn_disabled
+       활성화 btn_agree
+     -->
+    <button type="button" class="btn btn_lg btn_agree shadow">다음 단계로</button>
+  </div>
 </div>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/assets/script/common.js"></script>
 </body>
 </html>

@@ -98,7 +98,7 @@ gulp.task('script:concat', () => {
 
 gulp.task('library', () => {
 	return new Promise((resolve) => {
-		gulp.src(PATH.ASSETS.LIB + '/*.js').pipe(gulp.dest(DEST_PATH.ASSETS.LIB));
+		gulp.src(PATH.ASSETS.LIB + '/**/*.*').pipe(gulp.dest(DEST_PATH.ASSETS.LIB));
 
 		resolve();
 	});
@@ -107,11 +107,11 @@ gulp.task('library', () => {
 gulp.task('imagemin', () => {
 	return new Promise((resolve) => {
 		gulp
-			.src(PATH.ASSETS.IMAGES + '/*.*')
+			.src(PATH.ASSETS.IMAGES + '/**/*.*')
 			.pipe(
 				imagemin([
 					imagemin.gifsicle({ interlaced: false }),
-					imagemin.jpegtran({ progressive: true }),
+					imagemin.mozjpeg({ progressive: true }),
 					imagemin.optipng({ optimizationLevel: 5 }),
 					imagemin.svgo({
 						plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
@@ -138,6 +138,7 @@ gulp.task('watch', () => {
 		gulp.watch(PATH.HTML + '/**/*.html', gulp.series(['html-include']));
 		gulp.watch(PATH.ASSETS.STYLE + '/**/*.scss', gulp.series(['scss:compile']));
 		gulp.watch(PATH.ASSETS.SCRIPT + '/**/*.js', gulp.series(['script:concat']));
+		gulp.watch(PATH.ASSETS.LIB + '/**/*.*', gulp.series(['library']));
 		gulp.watch(PATH.ASSETS.IMAGES + '/**/*.*', gulp.series(['imagemin']));
 
 		resolve();
@@ -162,6 +163,7 @@ const ALL_SERIES = gulp.series([
 	'html-include',
 	'script:concat',
 	'library',
+	'imagemin',
 	'nodemon:start',
 	'browserSync',
 	'watch',
