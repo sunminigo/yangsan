@@ -15,11 +15,16 @@ $(function() {
     this.multiple = multiple || false;
 
     let links = this.el.find('.link');
+    let menus = links.next().find('button');
 
     links.on('click', {
       el: this.el,
       multiple: this.multiple
     }, this.dropdown)
+    menus.on('click', function (){
+      console.log('ddddd', this.parentNode.parentNode)
+      links.find('.select_txt').text(this.innerText)
+    });
   }
 
   Accordion.prototype.dropdown = function(e) {
@@ -73,11 +78,11 @@ $('#datepicker').datepicker({
 const handleSelect = function () {
   $('.calendar_box').hide();
   $('.time_box').hide();
-  $('#selectDate').click(function () {
+  $('#date').click(function () {
     $('.calendar_box').slideToggle();
     if ($('.time_box').is(':visible')) $('.time_box').slideUp(500);
   });
-  $('#selectTime').click(function () {
+  $('#time').click(function () {
     $('.time_box').slideToggle();
     if ($('.calendar_box').is(':visible')) $('.calendar_box').slideUp(500);
   });

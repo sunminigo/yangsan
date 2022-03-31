@@ -109,6 +109,10 @@
 
 				.text {
 					flex: 2;
+
+					.select_txt {
+						color: $color-point;
+					}
 				}
 				.img_arrow {
 					-webkit-transition: all 0.4s ease;
@@ -276,6 +280,153 @@
 						font-weight: bold;
 					}
 				}
+			}
+		}
+	}
+}
+
+/*-----------------
+	certify
+------------------*/
+.page_certify {
+	padding: 20px 20px 100px;
+
+	.certify_wrap {
+		.main_txt {
+			margin-bottom: $base-space*2;
+			font-size: 16px;
+
+			strong {
+				color: $color-point;
+			}
+		}
+		.sub_txt {
+			margin: $base-space*2 0;
+			color: #888;
+			font-size: 14px;
+		}
+		.form_box {
+			font-size: 12px;
+			margin-bottom: $base-space*2;
+
+			& > div {
+				display: flex;
+			}
+			label {
+				display: block;
+				margin: 0 0 $base-space;
+			}
+			input {
+
+				& + button {
+					line-height: 1;
+					margin-left: $base-space;
+					vertical-align: top;
+					word-break: keep-all;
+
+					@media screen and (max-width: 280px) {
+						font-size: 12px;
+					}
+				}
+			}
+			.info_txt {
+				color: $grey2;
+			}
+		}
+		.resident {
+			display: flex;
+
+			input {
+				width: 80%;
+				max-width: 133px;
+			}
+			span {
+				display: block;
+				line-height: 40px;
+				margin: 0 $base-space;
+			}
+		}
+	}
+	&.part2 {
+		padding-bottom: 200px;
+
+		.btn_wrap {
+			& > p {
+				color: $grey;
+				font-size: 11px;
+				margin-bottom: 4px;
+			}
+			.btn + p {
+				margin-top: $base-space*2;
+			}
+		}
+	}
+	&.part3 {
+		.form_box {
+			display: flex;
+			align-items: baseline;
+			margin-top: 12px;
+
+			&:first-child {
+				padding-bottom: 12px;
+				border-bottom: 1px solid $light;
+			}
+			label {
+				display: inline-block;
+				margin: 0 0 0 $base-space;
+				font-size: 16px;
+			}
+		}
+	}
+	&.part4 {
+		.camera_preview {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 300px;
+			max-height: 320px;
+			background: #FAFAFA;
+			border-radius: $base-space;
+			color: $color-point;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	}
+	&.part5 {
+		text-align: center;
+		font-size: 16px;
+
+		.xsbr {
+			display: none;
+
+			@media screen and (max-width: 320px) {
+				display: inline;
+			}
+		}
+		.bg_box {
+			margin-bottom: $base-space*2;
+			padding: 36px $base-space;
+			background: #FAFAFA;
+			border-radius: $base-space;
+
+			& > div + div {
+				margin-top: $base-space;
+			}
+			.title {
+				font-size: 12px;
+
+				&.point {
+					color: $color-point;
+				}
+			}
+			.selected {
+				font-size: 20px;
+				font-weight: bold;
+			}
+			.danger {
+				font-size: 14px;
+				color: $danger;
 			}
 		}
 	}

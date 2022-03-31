@@ -1,12 +1,12 @@
 @@include('../include/head.html', {title: '양산 보건소'})
-@@include('../include/header.html', {isLeft: true, title: '예약'})
+@@include('../include/header.html', {isLeft: true, title: '보건소 예약'})
 
 <div class="container page_reservation">
   <div class="dropdown_area">
     <ul id="accordion" class="accordion_list">
       <li>
         <button type="button" class="link">
-          <p class="text"><span class="select_place"></span> 이용 보건소 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+          <p class="text"><span class="select_txt"></span> 이용 보건소 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
           <button type="button"><img src="./assets/images/icons/plus.png" alt="">양산시 보건소 본원</button>
@@ -15,7 +15,7 @@
       </li>
       <li>
         <button type="button" class="link">
-          <p class="text"><span class="select_place"></span> 진료 과 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+          <p class="text"><span class="select_txt"></span> 진료 과 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
           <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">내과</button>
@@ -25,7 +25,7 @@
       </li>
       <li>
         <button type="button" class="link">
-          <p class="text"><span class="select_section"></span> 담당의 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+          <p class="text"><span class="select_txt"></span> 담당의 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
           <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">선택안함</button>
@@ -35,17 +35,17 @@
       </li>
       <li>
         <button type="button" class="link">
-          <p class="text"><span class="select_doctor"></span> 예약 날짜/시간</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
+          <p class="text"><span class="select_txt"></span> 예약 날짜/시간</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
-          <button type="button" id="selectDate">
+          <button type="button" id="date">
             <img src="./assets/images/icons/calendar.png" alt=""><span id="selectDay">예약날짜를 선택하세요</span>
           </button>
           <div class="calendar_box">
             <div id="datepicker"></div>
           </div>
-          <button type="button" id="selectTime">
-            <img src="./assets/images/icons/clock.png" alt=""><span id="selecTime">예약시간을 선택하세요</span>
+          <button type="button" id="time">
+            <img src="./assets/images/icons/clock.png" alt=""><span id="selectTime">예약시간을 선택하세요</span>
           </button>
           <div class="time_box">
             <div class="time">
@@ -77,11 +77,8 @@
   </div>
 
   <div class="btn_wrap fix">
-    <!--
-       비활성화 btn_disabled
-       활성화 btn_agree
-     -->
     <button type="button" class="btn btn_lg btn_agree shadow">다음 단계로</button>
+<!--    <button type="button" class="btn btn_lg btn_disabled shadow">다음 단계로</button>-->
   </div>
 </div>
 

@@ -1,0 +1,29 @@
+@@include('../include/head.html', {title: '양산 보건소'})
+@@include('../include/header.html', {isLeft: true, title: '보건소 사용자 인증'})
+
+<div class="container page_certify part4">
+  <div class="certify_wrap">
+    <p class="main_txt"><strong>[이름]</strong> 님 안녕하십니까.
+      양산시 보건소 출입 시 예약자 확인을 위하여 사용자의 얼굴 사진 등록이 필요합니다. 얼굴 사진 촬영 후 등록 버튼을 클릭해 주시기 바랍니다.  </p>
+
+    <p class="sub_txt">사용자의 얼굴 사진은 예약 당일까지만 저장하며 예약 가능 일은 현 시점부터 최대 N개월까지 입니다.</p>
+
+    <div class="camera_preview">
+      camera_preview
+    </div>
+  </div>
+
+  <!-- 촬영 전 -->
+  <div class="btn_wrap fix">
+    <button type="button" class="btn btn_lg btn_agree shadow">촬영</button>
+    <!--    <button type="button" class="btn btn_lg btn_disabled shadow">촬영</button>-->
+  </div>
+  <!-- 촬영 후 -->
+  <div class="btn_wrap fix shadow">
+    <a href="" class="btn btn_lg btn_outline_agree shadow">재촬영</a>
+    <a href="certify_part5.html" class="btn btn_lg btn_agree shadow">등록</a>
+  </div>
+
+</div>
+
+@@include('../include/footer.html')
