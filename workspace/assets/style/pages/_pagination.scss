@@ -13,6 +13,11 @@
     height: 36px;
     border: 1px solid $lightGrey;
 
+    &.active {
+      position: relative;
+      color: $color-point;
+      border: 1px solid $color-point;
+    }
     & + a {
       margin-left: -1px;
     }
