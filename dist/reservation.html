@@ -12,10 +12,10 @@
 <header class="header_area">
   
   <div class="btn_left_box">
-      <button type="button" class="btn_back"><img src="./assets/images/icons/arrow-left.png" alt="뒤로가기버튼" height="24px"></button>
+      <button type="button" class="btn_back" onclick="history.back()"><img src="./assets/images/icons/arrow-left.png" alt="뒤로가기버튼" height="24px"></button>
   </div>
   
-  <h1 class="logo"><img src="./assets/images/logo.png" alt="양산시보건소 로고" height="27px"> 보건소 예약</h1>
+  <h1 class="logo"><img src="./assets/images/logo.png" alt="양산시보건소 로고"> 보건소 예약</h1>
 </header>
 
 <div class="container page_reservation">
@@ -26,8 +26,8 @@
           <p class="text"><span class="select_txt"></span> 이용 보건소 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
-          <button type="button"><img src="./assets/images/icons/plus.png" alt="">양산시 보건소 본원</button>
-          <button type="button"><img src="./assets/images/icons/plus.png" alt="">웅진 보건소</button>
+          <button type="button" class="item"><img src="./assets/images/icons/plus.png" alt="">양산시 보건소 본원</button>
+          <button type="button" class="item"><img src="./assets/images/icons/plus.png" alt="">웅진 보건소</button>
         </div>
       </li>
       <li>
@@ -35,9 +35,9 @@
           <p class="text"><span class="select_txt"></span> 진료 과 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">내과</button>
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">정형외과</button>
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">정신과 </button>
+          <button type="button" class="item"><img src="./assets/images/icons/kit-box.png" alt="">내과</button>
+          <button type="button" class="item"><img src="./assets/images/icons/kit-box.png" alt="">정형외과</button>
+          <button type="button" class="item"><img src="./assets/images/icons/kit-box.png" alt="">정신과 </button>
         </div>
       </li>
       <li>
@@ -45,46 +45,47 @@
           <p class="text"><span class="select_txt"></span> 담당의 선택</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
         <div class="submenu">
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">선택안함</button>
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">유재석</button>
-          <button type="button"><img src="./assets/images/icons/kit-box.png" alt="">정준하</button>
+          <button type="button" class="item"><img src="./assets/images/icons/kit-box.png" alt="">선택안함</button>
+          <button type="button" class="item"><img src="./assets/images/icons/kit-box.png" alt="">유재석</button>
+          <button type="button" class="item"><img src="./assets/images/icons/kit-box.png" alt="">정준하</button>
         </div>
       </li>
       <li>
         <button type="button" class="link">
           <p class="text"><span class="select_txt"></span> 예약 날짜/시간</p><img src="./assets/images/icons/arrow-down.png" alt="" class="img_arrow">
         </button>
-        <div class="submenu">
-          <button type="button" id="date">
+        <div id="sub_accordion" class="submenu">
+          <button type="button" id="date" class="links2">
             <img src="./assets/images/icons/calendar.png" alt=""><span id="selectDay">예약날짜를 선택하세요</span>
           </button>
-          <div class="calendar_box">
+          <div class="calendar_box toggle">
             <div id="datepicker"></div>
           </div>
-          <button type="button" id="time">
-            <img src="./assets/images/icons/clock.png" alt=""><span id="selectTime">예약시간을 선택하세요</span>
+
+          <button type="button" id="time" class="links2">
+            <img src="./assets/images/icons/clock.png" alt=""><span id="selectTime" class="select_txt">예약시간을 선택하세요</span>
           </button>
-          <div class="time_box">
+          <div class="time_box toggle">
             <div class="time">
               <h3>오전</h3>
               <ul class="times">
-                <li class="disabled"><button type="button">09:00</button></li>
-                <li><button type="button">09:30</button></li>
-                <li><button type="button">10:00</button></li>
-                <li class="disabled"><button type="button">10:30</button></li>
-                <li><button type="button">11:00</button></li>
-                <li><button type="button">11:30</button></li>
+                <li><input type="radio" id="time1" name="time" /><label for="time1" class="item">09:00</label></li>
+                <li class=""><input type="radio" id="time2" name="time" /><label for="time2" class="item">09:00</label></li>
+                <li class=""><input type="radio" id="time3" name="time" /><label for="time3" class="item">09:00</label></li>
+                <li class=""><input type="radio" id="time4" name="time" disabled/><label for="time4" class="item">09:00</label></li>
+                <li class=""><input type="radio" id="time5" name="time" /><label for="time5" class="item">09:00</label></li>
+                <li class=""><input type="radio" id="time6" name="time" /><label for="time6" class="item">09:00</label></li>
               </ul>
             </div>
             <div class="time">
               <h3>오후</h3>
               <ul class="times">
-                <li><button type="button">09:00</button></li>
-                <li><button type="button">09:30</button></li>
-                <li class="selected"><button type="button">10:00</button></li>
-                <li class="disabled"><button type="button">10:30</button></li>
-                <li><button type="button">11:00</button></li>
-                <li><button type="button">11:30</button></li>
+                <li><input type="radio" id="time7" name="time" disabled/><label for="time7" class="item">09:00</label></li>
+                <li class=""><input type="radio" id="time8" name="time" /><label for="time8" class="item">01:00</label></li>
+                <li class=""><input type="radio" id="time9" name="time" /><label for="time9" class="item">01:30</label></li>
+                <li class=""><input type="radio" id="time10" name="time" /><label for="time10" class="item">02:00</label></li>
+                <li class=""><input type="radio" id="time11" name="time" /><label for="time11" class="item">02:30</label></li>
+                <li class=""><input type="radio" id="time12" name="time" /><label for="time12" class="item">03:00</label></li>
               </ul>
             </div>
           </div>
@@ -94,7 +95,7 @@
   </div>
 
   <div class="btn_wrap fix">
-    <button type="button" class="btn btn_lg btn_agree shadow">다음 단계로</button>
+    <a href="certify.html" class="btn btn_lg btn_agree shadow">다음 단계로</a>
 <!--    <button type="button" class="btn btn_lg btn_disabled shadow">다음 단계로</button>-->
   </div>
 </div>

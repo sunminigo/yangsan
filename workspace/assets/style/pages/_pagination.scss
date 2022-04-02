@@ -1,0 +1,32 @@
+/*---------------------------
+	pagination
+---------------------------*/
+.pagination_wrap {
+  display: flex;
+  justify-content: center;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 36px;
+    border: 1px solid $lightGrey;
+
+    & + a {
+      margin-left: -1px;
+    }
+  }
+  .prev {
+    width: 34px;
+    border-radius: $base-space 0 0 $base-space;
+  }
+  .next {
+    width: 34px;
+    border-radius: 0 $base-space $base-space 0;
+
+    img {
+      transform: scaleX(-1);
+    }
+  }
+}

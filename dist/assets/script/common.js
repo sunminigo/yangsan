@@ -15,32 +15,56 @@ $(function() {
     this.multiple = multiple || false;
 
     let links = this.el.find('.link');
-    let menus = links.next().find('button');
+    let links2 = this.el.find('.links2');
+    let menus = links.next().find('.item');
 
     links.on('click', {
       el: this.el,
-      multiple: this.multiple
+      multiple: this.multiple,
+      sub: false
     }, this.dropdown)
-    menus.on('click', function (){
-      console.log('ddddd', this.parentNode.parentNode)
-      links.find('.select_txt').text(this.innerText)
-    });
+    links2.on('click', {
+      el: this.el,
+      multiple: this.multiple,
+      sub: true
+    }, this.dropdown)
+    menus.on('click', {
+      el: this.el,
+      links: links,
+      links2: links2,
+    }, this.selectItem);
   }
 
+  Accordion.prototype.selectItem = function (e) {
+    if (e.data.links) {
+      $(this).parents('li').next().find('.select_txt').text($(this).text())
+    }
+    if (e.data.links2) {
+      $('#selectTime').text($(this).text())
+    }
+  }
   Accordion.prototype.dropdown = function(e) {
     let $el = e.data.el,
         $this = $(this),
         $next = $this.next();
 
-    $next.slideToggle();
-    $this.parent().toggleClass('open');
+    if (e.data.sub) {
+      $next.slideDown();
+    } else {
+      $next.slideToggle();
+      $this.parent().toggleClass('open');
+    }
 
-    if (!e.data.multiple) {
+    if (!e.data.sub && !e.data.multiple) {
       $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+    };
+    if (e.data.sub && !e.data.multiple) {
+      $el.find('.toggle').not($next).slideUp()
     };
   }
 
   let accordion = new Accordion($('#accordion'), false);
+  let subAccordion = new Accordion($('#sub_accordion'), false);
 });
 
 /* Calendar */
@@ -72,20 +96,3 @@ $('#datepicker').datepicker({
     $("#selectDay").text(`${d} (${week[date.getDay()]})`);
   }
 });
-
-
-
-const handleSelect = function () {
-  $('.calendar_box').hide();
-  $('.time_box').hide();
-  $('#date').click(function () {
-    $('.calendar_box').slideToggle();
-    if ($('.time_box').is(':visible')) $('.time_box').slideUp(500);
-  });
-  $('#time').click(function () {
-    $('.time_box').slideToggle();
-    if ($('.calendar_box').is(':visible')) $('.calendar_box').slideUp(500);
-  });
-}
-
-handleSelect();
