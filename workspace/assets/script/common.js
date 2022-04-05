@@ -30,17 +30,21 @@ $(function() {
     }, this.dropdown)
     menus.on('click', {
       el: this.el,
-      links: links,
-      links2: links2,
     }, this.selectItem);
   }
 
   Accordion.prototype.selectItem = function (e) {
-    if (e.data.links) {
-      $(this).parents('li').next().find('.select_txt').text($(this).text())
-    }
-    if (e.data.links2) {
-      $('#selectTime').text($(this).text())
+    let subAcc = $(this).parents()
+
+    if (subAcc.hasClass('toggle')) {
+      $('#selectTime').text($(this).text());
+
+      let selectDate = $("#selectDay").text();
+      let selectTime = $("#selectTime").text();
+
+      $('#dateTime').addClass('select_txt').text(`${selectDate} ${selectTime}`)
+    } else {
+      $(this).parents('li').find('.text').addClass('select_txt').text($(this).text())
     }
   }
   Accordion.prototype.dropdown = function(e) {
@@ -82,7 +86,7 @@ $('#datepicker').datepicker({
   minDate: 0,
   maxDate: "+30D",
   onSelect:function(d){
-    var arr = d.split(".");
+    let arr = d.split(".");
 
     $("#year").text(arr[0]);
     $("#month").text(arr[1]);
@@ -90,9 +94,14 @@ $('#datepicker').datepicker({
 
     //요일 가져오기
     //데이터를 먼저 가져오고 (숫자로 넘어옴)
-    var date = new Date($("#datepicker").datepicker({dateFormat:"yy.mm.dd"}).val());
-    var week = new Array("일","월","화","수","목","금","토");
+    let date = new Date($("#datepicker").datepicker({dateFormat:"yy.mm.dd"}).val());
+    let week = new Array("일","월","화","수","목","금","토");
+    let selectTime = $("#selectTime").text();
 
     $("#selectDay").text(`${d} (${week[date.getDay()]})`);
+
+    if (selectTime.indexOf('선택') === -1) {
+      $('#dateTime').addClass('select_txt').text(`${d} (${week[date.getDay()]}) ${selectTime}`)
+    }
   }
 });
