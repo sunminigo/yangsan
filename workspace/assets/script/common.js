@@ -30,6 +30,7 @@ $(function() {
     }, this.dropdown)
     menus.on('click', {
       el: this.el,
+      links: links
     }, this.selectItem);
   }
 
@@ -42,16 +43,18 @@ $(function() {
       let selectDate = $("#selectDay").text();
       let selectTime = $("#selectTime").text();
 
-      $('#dateTime').addClass('select_txt').text(`${selectDate} ${selectTime}`)
+      $('#dateTime').addClass('select_txt').text(`${selectDate} ${selectTime}`);
+      $('.time_box').slideUp();
     } else {
       $(this).parents('li').find('.text').addClass('select_txt').text($(this).text())
+      $(this).parent().slideUp().parent().removeClass('open');
+      $(this).parents('li').next().addClass('open').find('.submenu').slideDown();
     }
   }
   Accordion.prototype.dropdown = function(e) {
     let $el = e.data.el,
         $this = $(this),
         $next = $this.next();
-
     if (e.data.sub) {
       $next.slideDown();
     } else {
@@ -63,7 +66,7 @@ $(function() {
       $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
     };
     if (e.data.sub && !e.data.multiple) {
-      $el.find('.toggle').not($next).slideUp()
+      $el.find('.toggle').not($next).slideUp();
     };
   }
 
@@ -103,5 +106,6 @@ $('#datepicker').datepicker({
     if (selectTime.indexOf('선택') === -1) {
       $('#dateTime').addClass('select_txt').text(`${d} (${week[date.getDay()]}) ${selectTime}`)
     }
+    $('.calendar_box').slideUp(500);
   }
 });
