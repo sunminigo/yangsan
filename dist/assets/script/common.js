@@ -107,5 +107,6 @@ $('#datepicker').datepicker({
       $('#dateTime').addClass('select_txt').text(`${d} (${week[date.getDay()]}) ${selectTime}`)
     }
     $('.calendar_box').slideUp(500);
+    $('.time_box').slideDown(500);
   }
 });

@@ -1,0 +1,36 @@
+.popup_wrap {
+  @include position(fixed,$t:0,$r:0,$b:0,$l:0);
+  background: rgba(0,0,0,.5);
+
+  .popup {
+    @include position-center();
+    width: 90%;
+    max-width: 320px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+
+    .title {
+      text-align: center;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    &_container {
+      padding: 20px;
+      border-top: 1px solid $light;
+
+      &.text-center {
+        text-align: center;
+      }
+      .point {
+        color: $color-point;
+      }
+      p+p {
+        margin-top: $base-space*2;
+      }
+    }
+  }
+}
