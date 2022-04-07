@@ -573,3 +573,26 @@
 	}
 
 }
+
+/*-----------------
+	cancel
+------------------*/
+.page_info {
+	height: calc(100% - (57px + 73px));
+
+	.text_wrap {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+
+		.point {
+			color: $color-point;
+		}
+		p+p {
+			margin-top: $base-space*2;
+		}
+	}
+}
