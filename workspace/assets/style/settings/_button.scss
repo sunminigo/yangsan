@@ -53,6 +53,13 @@ a, button {
 	}
 }
 
+.btn_sm {
+	height: 29px;
+	padding: 0 $base-space;
+	font-size: 12px;
+	line-height: 1;
+	word-break: keep-all;
+}
 .btn_md {
 	height: 40px;
 	padding: 0 12px;
@@ -73,7 +80,7 @@ a, button {
 	color: #fff;
 }
 .btn_cancel {
-	background: $grey;
+	background: $grey3;
 }
 .btn_disabled {
 	background: $grey;
@@ -83,6 +90,11 @@ a, button {
 .btn_outline_agree {
 	color: $color-point;
 	border-color: $color-point !important;
+	background: #fff;
+}
+.btn_outline_cancel {
+	color: $grey3;
+	border-color: $grey3 !important;
 	background: #fff;
 }
 .btn_outline_disabled {

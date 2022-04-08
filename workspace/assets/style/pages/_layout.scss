@@ -380,8 +380,13 @@
 	&.part3 {
 		.form_box {
 			display: flex;
-			align-items: baseline;
+			justify-content: space-between;
 			margin-top: 12px;
+
+			> div {
+				display: flex;
+				align-items: baseline;
+			}
 
 			&:first-child {
 				padding-bottom: 12px;
@@ -572,4 +577,16 @@
 		}
 	}
 
+}
+
+/*-----------------
+	terms
+------------------*/
+.page_terms {
+	padding-bottom: 100px;
+
+	.terms_wrap {
+		padding: 20px;
+		font-size: 14px;
+	}
 }

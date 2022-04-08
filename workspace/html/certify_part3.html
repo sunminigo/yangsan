@@ -1,22 +1,37 @@
 @@include('../include/head.html', {title: '양산 보건소'})
-@@include('../include/header.html', {isLeft: true, title: '보건소 사용자 인증'})
+@@include('../include/header.html', {logoImg: false, isLeft: true, title: '보건소 사용자 인증'})
 
 <div class="container page_certify part3">
   <div class="certify_wrap">
     <div class="form_box">
-      <input type="checkbox" id="ip_chk_all" /><label for="ip_chk_all">전체동의</label>
+      <div>
+        <input type="checkbox" id="ip_chk_all" /><label for="ip_chk_all">전체동의</label>
+      </div>
     </div>
     <div class="form_box">
-      <input type="checkbox" id="ip_chk_1" /><label for="ip_chk_1">K-Gate 개인정보 수집 및 이용 동의(필수)</label>
+      <div>
+        <input type="checkbox" id="ip_chk_1" /><label for="ip_chk_1">K-Gate 개인정보 수집 및 이용 동의(필수)</label>
+      </div>
+      <button type="button" class="btn btn_sm btn_outline_cancel" onclick="location.href='/terms.html'">약관보기
+      </button>
     </div>
     <div class="form_box">
-      <input type="checkbox" id="ip_chk_2" /><label for="ip_chk_2">K-Gate 개인정보 제공 동의(필수)</label>
+      <div>
+        <input type="checkbox" id="ip_chk_2" /><label for="ip_chk_2">K-Gate 개인정보 제공 동의(필수)</label>
+      </div>
+      <button type="button" class="btn btn_sm btn_outline_cancel">약관보기</button>
     </div>
     <div class="form_box">
-      <input type="checkbox" id="ip_chk_3" /><label for="ip_chk_3">바이오 정보 수집 및 이용 동의(필수)</label>
+      <div>
+        <input type="checkbox" id="ip_chk_3" /><label for="ip_chk_3">바이오 정보 수집 및 이용 동의(필수)</label>
+      </div>
+      <button type="button" class="btn btn_sm btn_outline_cancel">약관보기</button>
     </div>
     <div class="form_box">
-      <input type="checkbox" id="ip_chk_4" checked /><label for="ip_chk_4">바이오 원본 정보 수집 및 이용 동의(필수)</label>
+      <div>
+        <input type="checkbox" id="ip_chk_4" checked /><label for="ip_chk_4">바이오 원본 정보 수집 및 이용 동의(필수)</label>
+      </div>
+      <button type="button" class="btn btn_sm btn_outline_cancel">약관보기</button>
     </div>
   </div>
 
